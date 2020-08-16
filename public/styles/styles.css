@@ -1,0 +1,14 @@
+body, #container {
+    display: grid;
+    justify-content: center;
+}
+#container {
+    width: 60vw;
+}
+body {
+    width: 100%;
+}
+#title, #recipe-details, #search-recipes {
+    min-height: 40px;
+    min-width: 200px;
+}

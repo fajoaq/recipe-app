@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Recipe App</title>
+        <link href="styles/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="container">
+
+            <input type="text" id="title" placeholder="Recipe title"/>
+
+            <input type="textarea" id="recipe-details" placeholder="some steps"/>
+
+            <h2>Ingredients</h2>
+            <div id="ingredients-container">
+                <p>Rice</p>
+                <p>Olive oil</p>
+                <p>Shrimp</p>
+            </div>
+            <div id="add-ingredient">
+                <input type="text" id="ingredient-input" placeholder="Add ingredient"/><button>Add</button>
+            </div>
+            
+            <h2>Danger Zone</h2>
+            <form action="index.html">
+                <button type="submit">Delete recipe</button>
+            </form>
+        </div>
+        
+        <script src="./scripts/bundle.js"></script>
+    </body>
+</html>
