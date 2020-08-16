@@ -1,2 +1,2 @@
-initialized directly (linking to existing github repository is problematic) from vscode using Github Pull Requests and Issues extension
+initialized directly (linking to existing github repository was problematic) from vscode using Github Pull Requests and Issues extension
 
