@@ -1,5 +1,7 @@
 import { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe } from './recipe'
-import renderRecipePreview from './views'
+import { renderRecipeDetails } from './views'
+
+renderRecipeDetails()
 
 /* renderRecipePreview() */
 

@@ -40,4 +40,36 @@ const renderRecipePreview = (searchText) =>{
     })
 }
 
-export { renderRecipePreview as default}
+const createRecipeDetailsDOM = (recipe) => {
+    const container = document.createElement('div')
+
+    recipe.ingredients.forEach((ingredient) => {
+        const innerContainer = document.createElement('div')
+        const checkbox = document.createElement('checkbox')
+        const title = document.createElement('span')
+
+        checkbox.checked = ingredient.checked
+        title.textContent = ingredient.title
+
+        innerContainer.appendChild(checkbox)
+        innerContainer.appendChild(title)
+        container.appendChild(innerContainer)
+    })
+    return container
+}
+
+const renderRecipeDetails = () => {
+    const recipeId = location.hash.substring(1)
+    const title = document.querySelector('#title')
+    const body = document.querySelector('#recipe-details')
+    const ingredientsContainer = document.querySelector('#ingredients-container')
+
+    const localRecipe = getRecipes()
+    const recipe = localRecipe.find((recipe) => recipe.id === recipeId)
+
+    title.value = recipe.title
+    body.value = recipe.body
+    ingredientsContainer.appendChild(createRecipeDetailsDOM(recipe))
+}
+
+export { renderRecipePreview, renderRecipeDetails }

@@ -40,10 +40,10 @@ const createRecipe = () => {
         id: uuidv4(),
         title: 'new title',
         body: 'new body',
-        ingredients: ['ingredient 1', 'ingredient 2']
+        ingredients: [{title:'ingredient 1', checked: false}, {title:'ingredient 2', checked: false}]
     }
     saveRecipe(recipe)
-    return recipe
+    return recipe.id
 }
 
 recipes = getRecipes()
