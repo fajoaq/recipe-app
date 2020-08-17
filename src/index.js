@@ -1,25 +1,7 @@
+import { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe } from './recipe'
 
-const printTeam = (teamName, coach, ...players) => {
-    console.log(`Team: ${teamName}`)
-    console.log(`Coach: ${coach}`)
-    console.log(`Players: ${players.join(', ')}`)
-}
+/* const newRecipe = createRecipe() */
 
-printTeam('Liberty', 'Casey Penn', 'Marge', 'Aiden', 'Herbert', 'Sherry')
+//deleteRecipe('4cdecd4b-c691-4b15-a4a4-909ad23650b7')
 
-let person = {
-    name: 'Francis',
-    age: 34
-}
-
-let location = {
-    city: 'Quakertown',
-    country: 'U.S.'
-}
-
-const overview = {
-    ...person,
-    ...location
-}
-
-console.log(overview)
+/* console.log(getRecipes()) */
