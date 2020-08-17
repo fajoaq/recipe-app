@@ -1,6 +1,18 @@
 import { getRecipes } from './recipe'
 
 //DISPLAY DATA - views.js
+const filterRecipes = (searchText) => {
+    const recipes = getRecipes()
+
+    if(typeof searchText === 'string') {
+        return recipes.filter((recipe) => {
+            return recipe.title.toLowerCase().includes(searchText.toLowerCase())
+        })
+    } else {
+        return recipes
+    }
+}
+
 const createPreviewDOM = (recipe) => {
     const recipeContainerDOM = document.createElement('a')
     recipeContainerDOM.setAttribute('href', `edit.html#${recipe.id}`)
@@ -17,10 +29,11 @@ const createPreviewDOM = (recipe) => {
     return recipeContainerDOM
 }
 
-const renderRecipePreview = () =>{
+const renderRecipePreview = (searchText) =>{
     const parentDiv = document.querySelector('#recipe-container')
-    const localRecipes = getRecipes()
-
+    const localRecipes = filterRecipes(searchText)
+    parentDiv.innerHTML = ''
+    
     localRecipes.forEach((recipe) => {
         const previewDom = createPreviewDOM(recipe)
         parentDiv.appendChild(previewDom)

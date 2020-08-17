@@ -1,7 +1,6 @@
 import uuidv4 from 'uuid/v4'
 let recipes = []
 
-
 //RETRIEVE DATA
 const getRecipes = () => {
     try{
