@@ -1,4 +1,4 @@
-import { getRecipes, toggleIngredient, updateRecipe } from './recipe'
+import { getRecipes, toggleIngredient, updateRecipe, deleteRecipe, deleteIngredient } from './recipe'
 
 //DISPLAY DATA - views.js
 const filterRecipes = (searchText) => {
@@ -47,17 +47,24 @@ const createRecipeDetailsDOM = (recipe) => {
         const innerContainer = document.createElement('div')
         const checkbox = document.createElement('input')
         const title = document.createElement('span')
+        const deleteIngredientBtn = document.createElement('button')
 
         checkbox.setAttribute('type', 'checkbox')
         checkbox.checked = ingredient.checked
         title.textContent = ingredient.title
+        deleteIngredientBtn.innerHTML = 'remove'
 
         checkbox.addEventListener('change', () => {
             toggleIngredient(ingredient.title)
         })
+        deleteIngredientBtn.addEventListener('click', () => {
+            deleteIngredient(ingredient.title)
+            renderRecipeDetails()
+        })
 
         innerContainer.appendChild(checkbox)
         innerContainer.appendChild(title)
+        innerContainer.appendChild(deleteIngredientBtn)
         container.appendChild(innerContainer)
     })
     return container

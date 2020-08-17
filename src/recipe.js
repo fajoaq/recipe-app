@@ -46,7 +46,7 @@ const createRecipe = () => {
         id: uuidv4(),
         title: 'new title',
         body: 'new body',
-        ingredients: [{title:'ingredient 1', checked: false}, {title:'ingredient 2', checked: false}]
+        ingredients: []
     }
     saveRecipe(recipe)
     return recipe.id
@@ -57,6 +57,20 @@ const addIngredient = (name) => {
         title: name,
         checked: false
     })
+    saveRecipeList()
+}
+const deleteIngredient = (name) => {
+    const recipe = getRecipeFromUrl()
+/*     const ingredient = recipe.ingredients.find((i) => i.title === name) */
+
+    const index = recipe.ingredients.findIndex(function (i) {
+        return i.title === name
+    })
+
+    if (index > -1) {
+        recipe.ingredients.splice(index, 1)
+        saveRecipeList()
+    }
     saveRecipeList()
 }
 const updateRecipe = (updates) => {
@@ -82,4 +96,4 @@ const toggleIngredient = (title) => {
 recipes = getRecipes()
 saveRecipeList()
 
-export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe, addIngredient }
+export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe, addIngredient, deleteIngredient }
