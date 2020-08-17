@@ -30,6 +30,7 @@ const saveRecipe = (recipe) => {
     recipes.push(recipe)
     saveRecipeList()
 }
+
 //DELETE RECIPE
 const deleteRecipe = (id) => {
     const index = recipes.findIndex(function (recipe) {
@@ -41,6 +42,8 @@ const deleteRecipe = (id) => {
         saveRecipeList()
     }
 }
+
+//CREATE RECIPE
 const createRecipe = () => {
     const recipe = {
         id: uuidv4(),
@@ -51,26 +54,14 @@ const createRecipe = () => {
     saveRecipe(recipe)
     return recipe.id
 }
+
+//EDIT RECIPE
 const addIngredient = (name) => {
     const recipe = getRecipeFromUrl()
     recipe.ingredients.push({
         title: name,
         checked: false
     })
-    saveRecipeList()
-}
-const deleteIngredient = (name) => {
-    const recipe = getRecipeFromUrl()
-/*     const ingredient = recipe.ingredients.find((i) => i.title === name) */
-
-    const index = recipe.ingredients.findIndex(function (i) {
-        return i.title === name
-    })
-
-    if (index > -1) {
-        recipe.ingredients.splice(index, 1)
-        saveRecipeList()
-    }
     saveRecipeList()
 }
 const updateRecipe = (updates) => {
@@ -82,7 +73,6 @@ const updateRecipe = (updates) => {
     if(updates.body) {
         recipe.body = updates.body.value
     }
-
     saveRecipeList()
 }
 const toggleIngredient = (title) => {
@@ -91,6 +81,18 @@ const toggleIngredient = (title) => {
 
     ingredient.checked = !ingredient.checked
     saveRecipeList()
+}
+const deleteIngredient = (name) => {
+    const recipe = getRecipeFromUrl()
+
+    const index = recipe.ingredients.findIndex(function (i) {
+        return i.title === name
+    })
+
+    if (index > -1) {
+        recipe.ingredients.splice(index, 1)
+        saveRecipeList()
+    }
 }
 
 recipes = getRecipes()
