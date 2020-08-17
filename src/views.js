@@ -1,4 +1,4 @@
-import { getRecipes } from './recipe'
+import { getRecipes, toggleIngredient } from './recipe'
 
 //DISPLAY DATA - views.js
 const filterRecipes = (searchText) => {
@@ -45,11 +45,16 @@ const createRecipeDetailsDOM = (recipe) => {
 
     recipe.ingredients.forEach((ingredient) => {
         const innerContainer = document.createElement('div')
-        const checkbox = document.createElement('checkbox')
+        const checkbox = document.createElement('input')
         const title = document.createElement('span')
 
+        checkbox.setAttribute('type', 'checkbox')
         checkbox.checked = ingredient.checked
         title.textContent = ingredient.title
+
+        checkbox.addEventListener('change', () => {
+            toggleIngredient(ingredient.title)
+        })
 
         innerContainer.appendChild(checkbox)
         innerContainer.appendChild(title)

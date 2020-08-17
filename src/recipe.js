@@ -45,8 +45,17 @@ const createRecipe = () => {
     saveRecipe(recipe)
     return recipe.id
 }
+const toggleIngredient = (title) => {
+    const recipeId = location.hash.substring(1)
+    const recipe = recipes.find((r) => r.id == recipeId)
+    const ingredient = recipe.ingredients.find((i) => i.title === title)
+
+    ingredient.checked = !ingredient.checked
+    console.log(ingredient.checked)
+    saveRecipeList()
+}
 
 recipes = getRecipes()
 saveRecipeList()
 
-export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe }
+export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient }
