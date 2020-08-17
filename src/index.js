@@ -8,5 +8,4 @@ document.querySelector('#search-recipes').addEventListener('input', (e) => {
 })
 document.querySelector('button').addEventListener('click', (e) => {
     location.assign(`edit.html#${createRecipe()}`)
-    renderRecipePreview()
 })

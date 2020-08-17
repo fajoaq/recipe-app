@@ -1,4 +1,4 @@
-import { getRecipes, toggleIngredient } from './recipe'
+import { getRecipes, toggleIngredient, updateRecipe } from './recipe'
 
 //DISPLAY DATA - views.js
 const filterRecipes = (searchText) => {
@@ -74,6 +74,13 @@ const renderRecipeDetails = () => {
 
     title.value = recipe.title
     body.value = recipe.body
+
+    title.addEventListener('input', () => {
+        updateRecipe({title: title, body: undefined})
+    })
+    body.addEventListener('input', () => {
+        updateRecipe({title: undefined, body: body})
+    })
     ingredientsContainer.appendChild(createRecipeDetailsDOM(recipe))
 }
 

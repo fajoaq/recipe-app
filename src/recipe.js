@@ -14,6 +14,12 @@ const getRecipes = () => {
         return []
     }
 }
+const getRecipeFromUrl = () => {
+    const recipeId = location.hash.substring(1)
+    const recipe = recipes.find((r) => r.id == recipeId)
+
+    return recipe
+}
 
 //SAVE DATA - recipes.js
 const saveRecipeList = () => {
@@ -45,17 +51,27 @@ const createRecipe = () => {
     saveRecipe(recipe)
     return recipe.id
 }
+const updateRecipe = (updates) => {
+    const recipe = getRecipeFromUrl()
+
+    if(updates.title) {
+        recipe.title = updates.title.value
+    }
+    if(updates.body) {
+        recipe.body = updates.body.value
+    }
+
+    saveRecipeList()
+}
 const toggleIngredient = (title) => {
-    const recipeId = location.hash.substring(1)
-    const recipe = recipes.find((r) => r.id == recipeId)
+    const recipe = getRecipeFromUrl()
     const ingredient = recipe.ingredients.find((i) => i.title === title)
 
     ingredient.checked = !ingredient.checked
-    console.log(ingredient.checked)
     saveRecipeList()
 }
 
 recipes = getRecipes()
 saveRecipeList()
 
-export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient }
+export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe }
