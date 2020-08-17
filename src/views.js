@@ -68,6 +68,7 @@ const renderRecipeDetails = () => {
     const title = document.querySelector('#title')
     const body = document.querySelector('#recipe-details')
     const ingredientsContainer = document.querySelector('#ingredients-container')
+    ingredientsContainer.innerHTML = ''
 
     const localRecipe = getRecipes()
     const recipe = localRecipe.find((recipe) => recipe.id === recipeId)

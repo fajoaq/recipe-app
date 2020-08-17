@@ -51,6 +51,14 @@ const createRecipe = () => {
     saveRecipe(recipe)
     return recipe.id
 }
+const addIngredient = (name) => {
+    const recipe = getRecipeFromUrl()
+    recipe.ingredients.push({
+        title: name,
+        checked: false
+    })
+    saveRecipeList()
+}
 const updateRecipe = (updates) => {
     const recipe = getRecipeFromUrl()
 
@@ -74,4 +82,4 @@ const toggleIngredient = (title) => {
 recipes = getRecipes()
 saveRecipeList()
 
-export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe }
+export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe, addIngredient }
