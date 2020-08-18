@@ -2,14 +2,14 @@ import { getRecipes, toggleIngredient, updateRecipe, deleteRecipe, deleteIngredi
 
 //DISPLAY DATA - views.js
 const filterRecipes = (searchText) => {
-    const recipes = getRecipes()
+    const localRecipes = getRecipes()
 
     if(typeof searchText === 'string') {
-        return recipes.filter((recipe) => {
+        return localRecipes.filter((recipe) => {
             return recipe.title.toLowerCase().includes(searchText.toLowerCase())
         })
     } else {
-        return recipes
+        return localRecipes
     }
 }
 
@@ -17,15 +17,14 @@ const createPreviewDOM = (recipe) => {
     const recipeContainerDOM = document.createElement('a')
     recipeContainerDOM.setAttribute('href', `edit.html#${recipe.id}`)
 
-    const previewParts = {
-        title: document.createElement('p2'),
-        body: document.createElement('p')
-    }
-    previewParts.title.textContent = recipe.title
-    previewParts.body.textContent = recipe.body
+    const title = document.createElement('p2')
+    const body = document.createElement('p')
+    
+    title.textContent = recipe.title
+    body.textContent = `${recipe.body.substring(0, 47)}...`
 
-    recipeContainerDOM.appendChild(previewParts.title)
-    recipeContainerDOM.appendChild(previewParts.body)
+    recipeContainerDOM.appendChild(title)
+    recipeContainerDOM.appendChild(body)
     return recipeContainerDOM
 }
 

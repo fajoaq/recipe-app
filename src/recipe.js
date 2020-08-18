@@ -56,14 +56,6 @@ const createRecipe = () => {
 }
 
 //EDIT RECIPE
-const addIngredient = (name) => {
-    const recipe = getRecipeFromUrl()
-    recipe.ingredients.push({
-        title: name,
-        checked: false
-    })
-    saveRecipeList()
-}
 const updateRecipe = (updates) => {
     const recipe = getRecipeFromUrl()
 
@@ -73,6 +65,14 @@ const updateRecipe = (updates) => {
     if(updates.body) {
         recipe.body = updates.body.value
     }
+    saveRecipeList()
+}
+const addIngredient = (name) => {
+    const recipe = getRecipeFromUrl()
+    recipe.ingredients.push({
+        title: name,
+        checked: false
+    })
     saveRecipeList()
 }
 const toggleIngredient = (title) => {
