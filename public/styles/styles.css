@@ -81,6 +81,9 @@ h1, h1 > span, h4 {
     color: #ffcc99;
     text-align: center;
 }
+h4 {
+    text-shadow: -1px 0  #660000, 0 1px  #660000, 1px 0  #660000, 0 -1px  #660000;     
+}
 #container, #edit-container {
     justify-items: center;
     justify-self: end;
