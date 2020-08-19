@@ -2,27 +2,43 @@
 <html>
     <head>
         <title>Recipe App</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://use.typekit.net/wns8uld.css">
         <link href="styles/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="container">
-            <a href="./index.html">HOME</a>
-            <input type="text" id="title" placeholder="Recipe title"/>
-
-            <textarea id="recipe-details" placeholder="some steps"></textarea>
-
-            <h2>Ingredients</h2>
-            <div id="ingredients-container">
+        <div id="edit-content">
+            <div id="edit-container">
+                <a href="./index.html" id="home-link"><span style="display: table-cell;vertical-align: middle;">&#8672;</span><span style="display: table-cell;vertical-align: middle;font-size: .6em;font-weight: lighter;">home</span></a>
+                <input type="text" id="edit-title" placeholder="Recipe title"/>
+    
+                <textarea id="recipe-details" placeholder="some steps"></textarea>
+    
+                <h4>Ingredients</h4>
+                <div id="ingredients-container">
+                </div>
+                <div id="add-input-container">
+                    <input type="text" id="ingredient-input" placeholder="Add ingredient"/><button id="add-ingredient">Add</button>
+                </div>
             </div>
-            <div>
-                <input type="text" id="ingredient-input" placeholder="Add ingredient"/><button id="add-ingredient">Add</button>
-            </div>
-            
-            <h2>Danger Zone</h2>
 
-            <button type="submit" id="delete-recipe">Delete recipe</button>
+            <div id="delete-recipe-container">
+                <div>
+                    <a href="" id="delete-recipe">
+                        delete <br />recipe
+                    </a>
+                </div>
+            </div>
         </div>
-        
+
+        <div id="fork-patch-container">
+            <div></div>
+            <div>
+                <div id="fork-patch"></div>
+            </div>
+        </div>
+
         <script src="./scripts/edit-bundle.js"></script>
     </body>
 </html>

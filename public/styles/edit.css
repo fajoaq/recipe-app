@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+html, body, #container, #search-recipes {
+    height: 95%;    
+}
+body{
+    display: grid;
+    grid: 1fr 20px / 1fr;
+    justify-items: center;
+}
+#content {
+    display: grid;
+    grid: 1fr / 1fr 90px;
+    grid-column-gap: 16.5vw;
+    width: 60vw;
+    font-size: 1.7em;
+    margin-top: 1vw;
+    border-radius: 10px;
+    border-top: solid thin black;
+    border-left: solid thin black;
+    border-right: solid 9px rgb(51,0,0);
+    border-bottom: solid 9px rgb(51,0,0);
+    box-shadow: 5px 10px 8px #888888;
+    background-color: #663300;
+    background-size: 60vw 100vh;
+    background-image:
+    linear-gradient(
+      to right, 
+      transparent,
+      transparent 5%,
+      rgba(204,153,102, .65) 5%,
+      rgba(204,153,102, .65) 7%,
+      transparent 7%,
+      transparent 9%,
+      rgba(255,204,102, .65) 9%,
+      rgba(255,204,102, .65) 14%,
+      transparent 14%,
+      transparent 16%,
+      rgba(204,153,102, .65) 16%,
+      rgba(204,153,102, .65) 18%,
+      transparent 18%,
+      transparent 100%
+    ), url('../images/wood-board-final-a.jpg');
+    /* background-image: repeating-linear-gradient(to right, #663300 2.5vw,  #cc9966 2.5vw, #663300 2.5vw, #cccc99 2.5vw, #663300 2.5vw, #cc9966 2.5vw, #663300 45vw); */
+}
+input {
+    padding-left: 10px;
+}
+/* h1 {
+    color: white;
+    text-align: center;
+    text-shadow: -1px 0  #330000, 0 2px  #330000, 2px 0  #330000, 0 -1px  #330000;
+    
+} */
+#container {
+    display: grid;
+    justify-items: center;
+    justify-self: end;
+    grid: repeat(8, 1fr) / 1fr;
+    grid-row-gap: 30px;
+    padding-top: 20px;
+}
+/* #container > div:last-of-type {
+    padding-bottom: 60px;
+} */
+/* #recipe-container {
+    display: grid;
+    align-content: start;
+    grid-row-gap: 20px;
+    min-width: 40vw;
+    max-width: 40vw;
+    padding-bottom: 20px;
+}
+#recipe-container > a {
+    display: grid;
+    justify-items: center;
+    text-decoration: none;
+    width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    font-size: .6em;
+    padding: 6px 5px;
+    background-image: url('../images/parchment2.png');
+    background-size: cover;
+    background-color: white;
+    border: solid 1px #888888;
+    border-bottom-right-radius: 10px;
+}
+#recipe-container > a > h3 {
+    width: 100%;
+    padding: 6px 5px;
+    border-bottom: solid thin black;
+}
+#recipe-container > a > p {
+    padding-top: 10px;
+} */
+#content {
+    grid-column-gap: 16.5vw;
+}
+#container {
+    grid: repeat(8, 1fr) / 1fr;
+}
+
+#delete-recipe-container {
+    display: grid;
+    justify-content: center;
+}
+#delete-recipe-container div {
+    display: grid;
+/*     justify-self: end; */
+    align-self: end;
+    background-image: url('../images/knife.svg');
+    background-size: cover;
+    height: 200px;
+    width: 90px;
+
+}
+#delete-recipe-container a {
+    align-self: end;
+/*     padding-bottom: 10px; */
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: -1px 0  white, 0 1px  white, 1px 0  white, 0 -1px  white;
+}
+/*      knife-button-fix        */
+#fork-patch-container {
+    display: grid;
+    grid: 1fr / 1fr 90px;
+    width: 60vw;
+    border-right: solid 9px rgba(0,0,0, 0);
+    border-radius: 10px;
+}
+#fork-patch-container > div {
+    display: grid;
+    justify-content: center;
+}
+#fork-patch {
+    height: 30px;
+    width: 63px;
+    border-top: none;
+    border-bottom: none;
+    position: relative;
+    right: 13px;
+    bottom: 10px;
+    background-color: white;
+}

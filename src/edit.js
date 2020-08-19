@@ -3,16 +3,20 @@ import { renderRecipeDetails } from './views'
 
 renderRecipeDetails()
 
-document.querySelector('#delete-recipe').addEventListener('click', () => {
+document.querySelector('#delete-recipe').addEventListener('click', (e) => {
+   e.preventDefault()
    deleteRecipe(location.hash.substring(1))
    location.assign('./index.html')
 })
 
-document.querySelector('#add-ingredient').addEventListener('click', () => {
+document.querySelector('#add-ingredient').addEventListener('click', (e) => {
    const ingredientText = document.querySelector('#ingredient-input')
-   addIngredient(ingredientText.value)
-   renderRecipeDetails()
-   ingredientText.value = ''
+   
+   if(ingredientText.value.length > 0) {
+      addIngredient(ingredientText.value)
+      renderRecipeDetails()
+      ingredientText.value = ''
+   }
 })
 document.querySelector('#ingredient-input').addEventListener('keyup', (e) => {
    if(event.isComposing || event.keyCode === 13) { //Return key

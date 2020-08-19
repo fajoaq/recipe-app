@@ -60,7 +60,7 @@ const createRecipeDetailsDOM = (recipe) => {
             deleteIngredient(ingredient.title)
             renderRecipeDetails()
         })
-
+        innerContainer.classList.add('recipe-item')
         innerContainer.appendChild(checkbox)
         innerContainer.appendChild(title)
         innerContainer.appendChild(deleteIngredientBtn)
@@ -71,7 +71,7 @@ const createRecipeDetailsDOM = (recipe) => {
 
 const renderRecipeDetails = () => {
     const recipeId = location.hash.substring(1)
-    const title = document.querySelector('#title')
+    const title = document.querySelector('#edit-title')
     const body = document.querySelector('#recipe-details')
     const ingredientsContainer = document.querySelector('#ingredients-container')
     ingredientsContainer.innerHTML = ''

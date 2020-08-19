@@ -3,21 +3,30 @@
     margin: 0;
     padding: 0;
     color: black;
+    text-decoration: none;
+    font-family: acme-gothic,sans-serif;
+    font-weight: 300;
+    font-style: normal; 
 }
-html, body, #container, #search-recipes {
+/*   display grid   */
+body, #content, #edit-content, #container, #edit-container, #recipe-container, #recipe-container > a,
+#add-recipe-container, #delete-recipe-container, #add-recipe-container div, #delete-recipe-container div,
+#knife-patch-container, #fork-patch-container, #ingredients-container > div, #ingredients-container > div > div,
+#knife-patch-container > div, #fork-patch-container > div, #add-input-container  {
+    display: grid;
+}
+html, body, #container, #search-recipes, #edit-title {
     height: 95%;    
 }
 body{
-    display: grid;
     grid: 1fr 20px / 1fr;
     justify-items: center;
 }
-#content {
-    display: grid;
+#content, #edit-content {
     grid: 1fr / 1fr 90px;
-    grid-column-gap: 2.5vw;
+    grid-column-gap: 4vw;
     width: 60vw;
-    font-size: 1.7em;
+    font-size: 1.7rem;
     margin-top: 1vw;
     border-radius: 10px;
     border-top: solid thin black;
@@ -45,33 +54,39 @@ body{
       transparent 18%,
       transparent 100%
     ), url('../images/wood-board-final-a.jpg');
-    /* background-image: repeating-linear-gradient(to right, #663300 2.5vw,  #cc9966 2.5vw, #663300 2.5vw, #cccc99 2.5vw, #663300 2.5vw, #cc9966 2.5vw, #663300 45vw); */
 }
-input {
+#search-recipes, #edit-title, #ingredient-input, #recipe-details  {
+    min-width: 30vw;
+    max-width: 40vw;
+    min-height: 30px;
+    border: solid thin #cccc99;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 4px 3px #888888 inset;
     padding-left: 10px;
 }
 #search-recipes {
-    border-radius: 10px;
+    min-width: 20vw;
+    max-width: 30vw;
 }
-h1 {
-    color: white;
+h1, h1 > span {
+    font-family: variex,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1, h1 > span, h4 {
+    color: #cccc99;
     text-align: center;
-    text-shadow: -1px 0  #330000, 0 2px  #330000, 2px 0  #330000, 0 -1px  #330000;
-    
+    text-shadow: -1px 0  #660000, 0 1px  #660000, 1px 0  #660000, 0 -1px  #660000; 
 }
-#container {
-    display: grid;
+#container, #edit-container {
     justify-items: center;
     justify-self: end;
     grid: 65px 50px 1fr / 1fr;
     grid-row-gap: 30px;
     padding-top: 20px;
 }
-/* #container > div:last-of-type {
-    padding-bottom: 60px;
-} */
 #recipe-container {
-    display: grid;
     align-content: start;
     grid-row-gap: 20px;
     min-width: 40vw;
@@ -79,10 +94,7 @@ h1 {
     padding-bottom: 20px;
 }
 #recipe-container > a {
-    display: grid;
     justify-items: center;
-    text-decoration: none;
-    width: 100%;
     min-height: 100px;
     max-height: 200px;
     font-size: .6em;
@@ -101,12 +113,10 @@ h1 {
 #recipe-container > a > p {
     padding-top: 10px;
 }
-#add-recipe-container {
-    display: grid;
+#add-recipe-container, #delete-recipe-container {
     justify-content: center;
 }
-#add-recipe-container div {
-    display: grid;
+#add-recipe-container div, #delete-recipe-container div {
 /*     justify-self: end; */
     align-self: end;
     background-image: url('../images/knife.svg');
@@ -115,33 +125,90 @@ h1 {
     width: 90px;
 
 }
-#add-recipe-container a {
-    align-self: end;
-/*     padding-bottom: 10px; */
+#add-recipe-container a, #delete-recipe-container a {
+    align-self: center;
     color: black;
-    text-align: left;
-    text-decoration: none;
     text-shadow: -1px 0  white, 0 1px  white, 1px 0  white, 0 -1px  white;
 }
+
 /*      knife-button-fix        */
-#knife-patch-container {
-    display: grid;
+#knife-patch-container, #fork-patch-container {
     grid: 1fr / 1fr 90px;
     width: 60vw;
     border-right: solid 9px rgba(0,0,0, 0);
     border-radius: 10px;
 }
-#knife-patch-container > div {
-    display: grid;
+#knife-patch-container > div, #fork-patch-container > div {
     justify-content: center;
 }
-#knife-patch {
+#knife-patch, #fork-patch {
     height: 30px;
-    width: 63px;
+    width: 64px;
     border-top: none;
     border-bottom: none;
     position: relative;
     right: 13px;
     bottom: 10px;
     background-color: white;
+}
+
+/*       styling for edit.html      */
+#home-link {
+    justify-self: start;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: -1px 0  rgba(255, 255, 255, 0.493), 0 1px  rgba(255, 255, 255, 0.493), 1px 0  rgba(255, 255, 255, 0.493), 0 -1px  rgba(255, 255, 255, 0.493);
+}
+#edit-title {
+    font-size: 1.5rem;
+}
+#edit-content {
+    grid-column-gap: 9vw;
+}
+#edit-container {
+    grid: 30px 50px minmax(60px, max-content) 20px max-content 50px / 1fr;
+    grid-row-gap: 40px;
+    margin-bottom: 40px;
+}
+#recipe-details {
+    min-height: 200px;
+    padding-top: 10px;
+}
+#ingredients-container > div {
+    align-content: center;
+    grid-row-gap: 20px;
+    min-width: 20vw;
+    min-height: 40px;
+}
+#ingredients-container > div > div {
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    background-image: url('../images/parchment2.png');
+}
+#ingredients-container input, #ingredients-container span {
+    font-size: .8em;
+}
+#ingredients-container button {
+    font-size: .6em;
+    justify-self: end;
+    margin-right: 10px;
+}
+#ingredient-input {
+    min-width: 20vw;
+    max-width: 30vw;
+}
+#delete-recipe-container div {
+    background-image: url('../images/fork.svg');
+}
+#add-input-container{
+    grid-column-gap: 10px;
+}
+#add-input-container button {
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+/*   fork image fix     */
+#fork-patch {
+    width: 34px;
+    right: 9px;
 }
