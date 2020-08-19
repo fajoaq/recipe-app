@@ -17,7 +17,7 @@ const createPreviewDOM = (recipe) => {
     const recipeContainerDOM = document.createElement('a')
     recipeContainerDOM.setAttribute('href', `edit.html#${recipe.id}`)
 
-    const title = document.createElement('p2')
+    const title = document.createElement('h3')
     const body = document.createElement('p')
     
     title.textContent = recipe.title

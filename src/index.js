@@ -6,6 +6,7 @@ renderRecipePreview()
 document.querySelector('#search-recipes').addEventListener('input', (e) => {
     renderRecipePreview(e.target.value)
 })
-document.querySelector('button').addEventListener('click', (e) => {
+document.querySelector('#add-recipe').addEventListener('click', (e) => {
+    e.preventDefault()
     location.assign(`./edit.html#${createRecipe()}`)
 })
