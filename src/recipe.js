@@ -57,8 +57,8 @@ const deleteRecipe = (id) => {
 const createRecipe = () => {
     const recipe = {
         id: uuidv4(),
-        title: 'new title',
-        body: 'new body',
+        title: 'Recipe title',
+        body: 'New instructions',
         ingredients: []
     }
     saveRecipe(recipe)

@@ -21,6 +21,8 @@ const createPreviewDOM = (recipe) => {
 
     const title = document.createElement('h3')
     title.classList.add('preview-title')
+    const ingredientGraphic = document.createElement('img')
+    ingredientGraphic.setAttribute('src', '../images/ingredients.svg')
     const ingredientCountDOM = document.createElement('span')
     const body = document.createElement('p')
     
@@ -29,6 +31,7 @@ const createPreviewDOM = (recipe) => {
     body.textContent = `${recipe.body.substring(0, 47)}...`
 
     recipeContainerDOM.appendChild(title)
+    recipeContainerDOM.appendChild(ingredientGraphic)
     recipeContainerDOM.appendChild(ingredientCountDOM)
     recipeContainerDOM.appendChild(body)
     return recipeContainerDOM

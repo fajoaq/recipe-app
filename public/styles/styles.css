@@ -95,7 +95,7 @@ h1, h1 > span, h4 {
 }
 #recipe-container > a {
 /*     justify-items: center; */
-    grid: 1fr 80px / 1fr 1fr;
+    grid: 1fr 30px 80px / 1fr 1fr;
     min-height: 100px;
     max-height: 200px;
     font-size: .6em;
@@ -108,13 +108,21 @@ h1, h1 > span, h4 {
 }
 #recipe-container > a > span {
     justify-self: end;
+    align-self: end;
+    padding-right: 6px;
+
+}
+#recipe-container > a > img {
+    justify-self: end;
+    width: 30px;
+    height: 30px;
 }
 #recipe-container > a > h3 {
     width: 100%;
     padding: 6px 5px;
 }
 #recipe-container > a > p {
-    grid-column: span 2;
+    grid-column: span 3;
     border-top: solid thin black;
     padding-top: 10px;
     padding-left: 6px;
