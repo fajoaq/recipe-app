@@ -16,10 +16,10 @@ body, #content, #edit-content, #container, #edit-container, #recipe-container, #
     display: grid;
 }
 html, body, #container, #search-recipes, #edit-title {
-    height: 95%;    
+    height: 97%;    
 }
 body{
-    grid: 1fr 20px / 1fr;
+    grid: 1fr 20px 90px / 1fr;
     justify-items: center;
 }
 #content, #edit-content {
@@ -41,19 +41,19 @@ body{
       to right, 
       transparent,
       transparent 5%,
-      rgba(204,153,102, .65) 5%,
-      rgba(204,153,102, .65) 7%,
+      rgb(255,255,204, .65) 5%,
+      rgb(255,255,204, .65) 7%,
       transparent 7%,
       transparent 9%,
-      rgba(255,204,102, .65) 9%,
-      rgba(255,204,102, .65) 14%,
+      rgb(255,204,153, .65) 9%,
+      rgb(255,204,153, .65) 14%,
       transparent 14%,
       transparent 16%,
-      rgba(204,153,102, .65) 16%,
-      rgba(204,153,102, .65) 18%,
+      rgb(255,255,204, .65) 16%,
+      rgb(255,255,204, .65) 18%,
       transparent 18%,
       transparent 100%
-    ), url('../images/wood-board-final-a.jpg');
+    ), url('../images/clean-wood.jpg');
 }
 #search-recipes, #edit-title, #ingredient-input, #recipe-details  {
     min-width: 30vw;
@@ -69,15 +69,17 @@ body{
     min-width: 20vw;
     max-width: 30vw;
 }
+h1 {
+    text-shadow: -1px 0  #660000, 0 2px  #660000, 1px 0  #660000, 0 -1px  #660000; 
+}
 h1, h1 > span {
     font-family: variex,sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 h1, h1 > span, h4 {
-    color: #cccc99;
+    color: #ffcc99;
     text-align: center;
-    text-shadow: -1px 0  #660000, 0 1px  #660000, 1px 0  #660000, 0 -1px  #660000; 
 }
 #container, #edit-container {
     justify-items: center;
@@ -225,4 +227,11 @@ h1, h1 > span, h4 {
 #fork-patch {
     width: 34px;
     right: 9px;
+}
+
+footer {
+    align-self: end;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
