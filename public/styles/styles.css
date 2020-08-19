@@ -12,7 +12,7 @@
 body, #content, #edit-content, #container, #edit-container, #recipe-container, #recipe-container > a,
 #add-recipe-container, #delete-recipe-container, #add-recipe-container div, #delete-recipe-container div,
 #knife-patch-container, #fork-patch-container, #ingredients-container > div, #ingredients-container > div > div,
-#knife-patch-container > div, #fork-patch-container > div, #add-input-container  {
+#knife-patch-container > div, #fork-patch-container > div, #add-input-container, #recipe-container > a   {
     display: grid;
 }
 html, body, #container, #search-recipes, #edit-title {
@@ -94,7 +94,8 @@ h1, h1 > span, h4 {
     padding-bottom: 20px;
 }
 #recipe-container > a {
-    justify-items: center;
+/*     justify-items: center; */
+    grid: 1fr 80px / 1fr 1fr;
     min-height: 100px;
     max-height: 200px;
     font-size: .6em;
@@ -105,13 +106,18 @@ h1, h1 > span, h4 {
     border: solid 1px #888888;
     border-bottom-right-radius: 10px;
 }
+#recipe-container > a > span {
+    justify-self: end;
+}
 #recipe-container > a > h3 {
     width: 100%;
     padding: 6px 5px;
-    border-bottom: solid thin black;
 }
 #recipe-container > a > p {
+    grid-column: span 2;
+    border-top: solid thin black;
     padding-top: 10px;
+    padding-left: 6px;
 }
 #add-recipe-container, #delete-recipe-container {
     justify-content: center;

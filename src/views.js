@@ -1,4 +1,4 @@
-import { getRecipes, toggleIngredient, updateRecipe, deleteRecipe, deleteIngredient } from './recipe'
+import { getRecipes, toggleIngredient, updateRecipe, deleteRecipe, deleteIngredient, ingredientCount } from './recipe'
 
 //DISPLAY DATA - views.js
 const filterRecipes = (searchText) => {
@@ -15,15 +15,21 @@ const filterRecipes = (searchText) => {
 
 const createPreviewDOM = (recipe) => {
     const recipeContainerDOM = document.createElement('a')
+    recipeContainerDOM.classList.add('preview-container')
     recipeContainerDOM.setAttribute('href', `edit.html#${recipe.id}`)
+    const ingredients = ingredientCount(recipe)
 
     const title = document.createElement('h3')
+    title.classList.add('preview-title')
+    const ingredientCountDOM = document.createElement('span')
     const body = document.createElement('p')
     
     title.textContent = recipe.title
+    ingredientCountDOM.innerHTML = `${ingredients.complete}/${ingredients.count}`
     body.textContent = `${recipe.body.substring(0, 47)}...`
 
     recipeContainerDOM.appendChild(title)
+    recipeContainerDOM.appendChild(ingredientCountDOM)
     recipeContainerDOM.appendChild(body)
     return recipeContainerDOM
 }
@@ -33,10 +39,16 @@ const renderRecipePreview = (searchText) =>{
     const localRecipes = filterRecipes(searchText)
     parentDiv.innerHTML = ''
     
-    localRecipes.forEach((recipe) => {
-        const previewDom = createPreviewDOM(recipe)
+    if(localRecipes.length === 0) {      
+        const previewDom = document.createElement('p')  
+        previewDom.innerHTML = 'No recipes to show. <br />Create a recipe and lets get cooking!'
         parentDiv.appendChild(previewDom)
-    })
+    } else {
+        localRecipes.forEach((recipe) => {
+            parentDiv.appendChild(createPreviewDOM(recipe))
+        })
+    }
+/*     parentDiv.appendChild(previewDom) */
 }
 
 const createRecipeDetailsDOM = (recipe) => {

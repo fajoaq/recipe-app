@@ -20,7 +20,17 @@ const getRecipeFromUrl = () => {
 
     return recipe
 }
-
+const ingredientCount = (recipe) => {
+    let complete = 0
+    const count = recipe.ingredients.length
+    recipe.ingredients.forEach((ingredient) => {
+        if(ingredient.checked){ complete++ }
+    })
+    return {
+        complete: complete,
+        count: count
+    }
+}
 //SAVE DATA - recipes.js
 const saveRecipeList = () => {
     const recipeObj = JSON.stringify(recipes)
@@ -98,4 +108,4 @@ const deleteIngredient = (name) => {
 recipes = getRecipes()
 saveRecipeList()
 
-export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe, addIngredient, deleteIngredient }
+export { getRecipes, saveRecipeList, saveRecipe, deleteRecipe, createRecipe, toggleIngredient, updateRecipe, addIngredient, deleteIngredient, ingredientCount }
