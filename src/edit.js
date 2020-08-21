@@ -19,7 +19,7 @@ document.querySelector('#add-ingredient').addEventListener('click', (e) => {
    }
 })
 document.querySelector('#ingredient-input').addEventListener('keyup', (e) => {
-   if(event.isComposing || event.keyCode === 13) { //Return key
+   if(event.keyCode === 13) { //Return key
       const ingredientText = document.querySelector('#ingredient-input')
       if(ingredientText.value.length > 0) {
          addIngredient(ingredientText.value)
