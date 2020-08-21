@@ -55,7 +55,7 @@ body{
       transparent 100%
     ), url('../images/clean-wood.jpg');
 }
-#search-recipes, #edit-title, #ingredient-input, #recipe-details  {
+#search-recipes, #edit-title, #recipe-details  {
     min-width: 30vw;
     max-width: 40vw;
     min-height: 30px;
@@ -102,7 +102,7 @@ h4 {
 /*     justify-items: center; */
     grid: 1fr 30px 80px / 1fr 1fr;
     min-height: 100px;
-    max-height: 200px;
+    max-height: 120px;
     font-size: .6em;
     padding: 6px 5px;
     background-image: url('../images/parchment2.png');
@@ -182,7 +182,7 @@ h4 {
     font-size: 1.5rem;
 }
 #edit-content {
-    grid-column-gap: 9vw;
+    grid-column-gap: 4vw;
 }
 #edit-container {
     grid: 30px 50px minmax(60px, max-content) 20px max-content 50px / 1fr;
@@ -204,7 +204,7 @@ h4 {
     grid-column-gap: 10px;
     background-image: url('../images/parchment2.png');
 }
-#ingredients-container input, #ingredients-container span {
+#add-input-container input, #ingredients-container span {
     font-size: .8em;
 }
 #ingredients-container button {
@@ -212,10 +212,7 @@ h4 {
     justify-self: end;
     margin-right: 10px;
 }
-#ingredient-input {
-    min-width: 20vw;
-    max-width: 30vw;
-}
+
 #delete-recipe-container div {
     background-image: url('../images/fork.svg');
 }
@@ -231,10 +228,143 @@ h4 {
     width: 34px;
     right: 9px;
 }
+#edit-title, #recipe-details {
+    min-width: 42vw;
+    max-width: 52vw; 
+}
 
 footer {
     align-self: end;
     text-align: center;
     padding-bottom: 20px;
-    padding-top: 20px;
+}
+
+@media only screen and (max-width: 460px) {
+    #content, #edit-content {
+        grid: 1fr / 1fr 31px;
+        width: 95vw;
+        margin-top: .5vw;
+    }
+    #search-recipes, #edit-title {
+        min-width: 45vw;
+        max-width: 45vw;
+    }
+    .index-body, .edit-body {
+        grid: 1fr 30px 90px / 1fr;
+    }
+    #recipe-container, #edit-title, #recipe-details {
+        min-width: 80vw;
+        max-width: 80vw;
+    }
+    #knife-patch-container, #fork-patch-container {
+        grid: 1fr / 1fr 31px;
+        width: 95vw;
+    }
+    #knife-patch {
+        height: 30px;
+        width: 34px;
+        right: 7px;
+    }
+    #fork-patch {
+        height: 30px;
+        width: 16px;
+        right: 5px;
+    }
+    #add-recipe-container div, #delete-recipe-container div {
+        height: 93px;
+        width: 48px;
+    }
+    #add-recipe-container a, #delete-recipe-container a {
+        font-size: 1rem;
+    }
+    #add-input-container {
+        min-width: 65vw;
+        max-width: 65vw;
+    }
+    h1 {
+        font-size: 1.4em;
+        padding-left: 26px;
+    }
+}
+@media only screen and (min-width: 460px) and (max-width: 740px) {
+    #content, #edit-content {
+        grid: 1fr / 1fr 30px;
+        grid-column-gap: 5vw;
+        width: 97vw;
+        margin-top: .7vw;
+    }
+    #search-recipes {
+        min-width: 40vw;
+        max-width: 40vw;
+    }
+    #add-recipe-container div, #delete-recipe-container div {
+        height: 92px;
+        width: 52px;
+    }
+    #knife-patch {
+        height: 30px;
+        width: 36px;
+        right: 3px;
+    }
+    #fork-patch {
+        height: 30px;
+        width: 17px;
+        right: 0px;
+    }
+    #knife-patch-container, #fork-patch-container {
+        grid: 1fr / 1fr 30px;
+        width: 95vw;
+    }
+    #recipe-container, #edit-container > * {
+        min-width: 76vw;
+        max-width: 76vw;
+    }
+    #add-recipe-container a, #delete-recipe-container a {
+        font-size: .8em;
+    }
+    #add-input-container {
+        min-width: 35vw;
+        max-width: 45vw;
+    }
+}
+@media only screen and (min-width: 740px) and (max-width: 1366px) {
+    #content, #edit-content {
+        grid: 1fr / 1fr 45px;
+        grid-column-gap: 5vw;
+        width: 70vw;
+        margin-top: .8vw;
+    }
+    #search-recipes {
+        min-width: 35vw;
+        max-width: 35vw;
+    }
+    #add-recipe-container div, #delete-recipe-container div {
+        height: 165px;
+        width: 66px;
+    }
+    #add-recipe-container a, #delete-recipe-container a {
+        font-size: .8em;
+    }
+    #knife-patch-container, #fork-patch-container {
+        grid: 1fr / 1fr 45px;
+        width: 70vw;
+    }
+    #knife-patch {
+        height: 30px;
+        width: 46px;
+        right: 10px;
+    }
+    #fork-patch {
+        height: 30px;
+        width: 26px;
+        right: 6px;
+    }
+    #recipe-container, #edit-container > * {
+        min-width: 52vw;
+        max-width: 52vw;
+    }
+    #add-input-container {
+        min-width: 20vw;
+        max-width: 30vw;
+    }
 }
